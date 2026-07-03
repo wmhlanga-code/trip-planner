@@ -8,7 +8,15 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'],
+      includeAssets: [
+        'favicon.svg',
+        'favicon.ico',
+        'favicon-32x32.png',
+        'favicon-16x16.png',
+        'icon-192.png',
+        'icon-512.png',
+        'apple-touch-icon.png',
+      ],
       manifest: {
         name: 'The Bad Decisions Trip 2026',
         short_name: 'Bad Decisions Trip',
@@ -41,7 +49,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
       },
     }),
   ],

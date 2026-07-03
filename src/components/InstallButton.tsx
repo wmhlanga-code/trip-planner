@@ -38,7 +38,7 @@ export function InstallButton({ onEnter }: Props) {
           <span className="stub-btn-notch stub-btn-notch--l" aria-hidden />
           <span className="stub-btn-notch stub-btn-notch--r" aria-hidden />
           <span className="stub-btn-icon" aria-hidden>
-            <TicketGlyph />
+            <DownloadGlyph />
           </span>
           <span className="stub-btn-text">{label}</span>
         </button>
@@ -52,14 +52,17 @@ export function InstallButton({ onEnter }: Props) {
   )
 }
 
-function TicketGlyph() {
+function DownloadGlyph() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <path
-        d="M4 6h16v3.2a2 2 0 0 0 0 5.6V18H4v-3.2a2 2 0 0 0 0-5.6V6Z"
-        fill="currentColor"
+        d="M12 3v11.5M12 14.5l-4.5-4.5M12 14.5l4.5-4.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <line x1="14" y1="6" x2="14" y2="18" stroke="var(--navy)" strokeWidth="1.4" strokeDasharray="1.6 1.8" />
+      <path d="M4.5 17v2a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   )
 }
