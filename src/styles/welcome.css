@@ -1,0 +1,404 @@
+/* ============ Welcome / split-flap board ============ */
+.welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  padding: 24px calc(20px + env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom))
+    calc(20px + env(safe-area-inset-left));
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  animation: welcome-fade 0.4s ease both;
+}
+
+@keyframes welcome-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scan-line sweep */
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--orange);
+  box-shadow: 0 0 12px 1px var(--orange);
+  animation: scan 0.32s linear both;
+}
+@keyframes scan {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh);
+    opacity: 0.9;
+  }
+}
+
+.welcome-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 640px;
+  width: 100%;
+}
+.welcome-hero.is-shake {
+  animation: micro-shake 0.18s linear;
+}
+@keyframes micro-shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1px, 1px);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+  75% {
+    transform: translate(-1px, 0);
+  }
+}
+
+/* ---- split-flap rows ---- */
+.sf-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4em;
+  row-gap: 0.1em;
+}
+.sf-word {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 3px;
+}
+.sf-small {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  gap: 1.1em;
+}
+.sf-small .sf-word {
+  gap: 0.42em;
+}
+.sf-title {
+  border-block: 1px solid rgba(192, 54, 44, 0.5);
+  padding: 8px 0;
+  width: 100%;
+}
+.sf-large {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: #fff;
+  font-size: clamp(34px, 12vw, 76px);
+  line-height: 1;
+  gap: 0.3em;
+}
+.sf-large .sf-word {
+  gap: 0;
+}
+
+/* ---- individual tile ---- */
+.sf-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 200px;
+  min-width: 0.34em;
+  position: relative;
+}
+.sf-large .sf-tile {
+  border-right: 1px solid rgba(192, 54, 44, 0.45);
+  padding: 0 0.04em;
+}
+.sf-large .sf-tile:last-child {
+  border-right: none;
+}
+.sf-inner {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 0.04s linear;
+  will-change: transform;
+  white-space: pre;
+}
+.sf-inner.sf-flip {
+  transform: rotateX(-88deg);
+}
+.sf-tile.is-settled .sf-inner {
+  transform: rotateX(0deg);
+  transition: transform 0.14s cubic-bezier(0.2, 1.4, 0.5, 1);
+}
+
+/* ---- 2026 rubber stamp ---- */
+.stamp {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  opacity: 0;
+}
+.stamp.is-in {
+  animation: stamp-down 0.5s cubic-bezier(0.18, 1.5, 0.4, 1) both;
+}
+@keyframes stamp-down {
+  0% {
+    opacity: 0;
+    transform: scale(1.8) rotate(-8deg);
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+.welcome--reduced .stamp,
+.stamp.is-in {
+  opacity: 1;
+}
+.stamp-text {
+  font-size: clamp(30px, 10vw, 52px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-indent: 0.12em;
+  color: var(--orange);
+}
+.stamp-ring {
+  position: absolute;
+  inset: -6px -14px;
+  border: 2.5px solid var(--orange);
+  border-radius: 999px;
+  opacity: 0.85;
+}
+
+/* ---- barcode + flavor ---- */
+.welcome-foot {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+.welcome-foot.is-in {
+  animation: rise 0.5s ease both;
+}
+.welcome-barcode {
+  color: var(--sand);
+  height: 40px;
+  opacity: 0.9;
+}
+.welcome-flavor {
+  color: var(--sand);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-align: center;
+  margin: 0;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- CTA ---- */
+.welcome-cta {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(14px);
+}
+.welcome-cta.is-in {
+  animation: rise 0.5s ease 0.05s both;
+}
+
+/* ============ Install button (ticket stub) ============ */
+.install-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.stub-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 18px 34px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  transition: transform 0.12s ease, background 0.15s;
+  animation: stub-pulse 2.2s ease-in-out 1.5s infinite;
+}
+@keyframes stub-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(192, 54, 44, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(192, 54, 44, 0);
+  }
+}
+.stub-btn::before {
+  content: '';
+  position: absolute;
+  left: 52px;
+  top: 8px;
+  bottom: 8px;
+  border-left: 2px dashed rgba(255, 255, 255, 0.55);
+}
+.stub-btn:active {
+  transform: scale(0.97);
+  background: var(--orange-dark);
+}
+.stub-btn-icon {
+  display: inline-flex;
+  color: #fff;
+}
+.stub-btn-notch {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  background: var(--navy);
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+.welcome .stub-btn-notch {
+  background: var(--navy);
+}
+.stub-btn-notch--l {
+  left: -7px;
+}
+.stub-btn-notch--r {
+  right: -7px;
+}
+.enter-link {
+  background: none;
+  border: none;
+  color: var(--sand);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+  padding: 6px;
+}
+.enter-link:active {
+  opacity: 1;
+}
+
+/* ============ iOS install sheet ============ */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(28, 43, 58, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: welcome-fade 0.2s ease both;
+}
+.sheet {
+  background: var(--paper);
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px 20px 0 0;
+  padding: 12px 24px calc(28px + env(safe-area-inset-bottom));
+  animation: sheet-up 0.28s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.sheet-grip {
+  width: 40px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--line);
+  margin: 4px auto 16px;
+}
+.sheet-title {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+.sheet-body {
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  font-size: 14px;
+}
+.sheet-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sheet-steps li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+}
+.sheet-step-icon {
+  flex: 0 0 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);
+}
+.sheet-close {
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+}
+.sheet-close:active {
+  background: var(--navy-2);
+}

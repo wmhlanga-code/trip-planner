@@ -1,0 +1,726 @@
+/* ============ Daily digest banner ============ */
+.digest {
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.digest-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.digest-bell {
+  font-size: 15px;
+}
+.digest-title {
+  flex: 1;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+}
+.digest-close {
+  background: none;
+  border: none;
+  color: var(--navy);
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 2px;
+  opacity: 0.6;
+}
+.digest-close:active {
+  opacity: 1;
+}
+.digest-body {
+  margin: 10px 0 0;
+  font-size: 12px;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+.digest-enable {
+  margin-top: 10px;
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.digest-enable:active {
+  background: var(--navy-2);
+}
+.digest-denied {
+  margin: 10px 0 0;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* ============ Boarding pass ============ */
+.pass {
+  position: relative;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 16px;
+  padding: 18px 20px 0;
+  overflow: hidden;
+}
+
+.pass-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 12px;
+}
+.pass-brand {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--sand);
+  opacity: 0.85;
+  white-space: nowrap;
+}
+.pass-name {
+  width: 100%;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  color: #fff;
+  border-bottom-color: transparent;
+}
+.pass-name:hover,
+.pass-name:focus {
+  border-bottom-color: var(--orange);
+}
+
+.pass-route {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 18px;
+}
+.pass-port {
+  flex: 0 0 auto;
+}
+.pass-port--r {
+  text-align: right;
+}
+.pass-code {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(30px, 9vw, 44px);
+  line-height: 1;
+}
+.pass-city {
+  font-size: 11px;
+  color: var(--sand);
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+.pass-mid {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+.pass-dashes {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed var(--sand);
+  opacity: 0.5;
+}
+.pass-plane {
+  position: relative;
+  background: var(--navy);
+  padding: 0 8px;
+  color: var(--orange);
+  font-size: 18px;
+}
+
+.pass-legs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid rgba(216, 201, 174, 0.25);
+  padding: 14px 0;
+}
+.leg {
+  display: flex;
+  gap: 12px;
+}
+.leg-tag {
+  flex: 0 0 40px;
+  font-size: 11px;
+  color: var(--orange);
+  letter-spacing: 0.08em;
+  padding-top: 2px;
+}
+.leg-main {
+  flex: 1;
+  min-width: 0;
+}
+.leg-line1 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--sand);
+  margin-bottom: 4px;
+}
+.leg-times {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.leg-arrow {
+  color: var(--orange);
+}
+.leg-dur {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--sand);
+}
+.leg-aircraft {
+  font-size: 11px;
+  color: var(--sand);
+  opacity: 0.75;
+  margin-top: 3px;
+}
+
+.pass-count {
+  padding: 16px 0;
+  border-color: rgba(216, 201, 174, 0.3);
+}
+.pass-count-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--sand);
+  margin-bottom: 6px;
+}
+.pass-count-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 30px;
+  font-weight: 600;
+}
+.cc-daylabel {
+  font-size: 13px;
+  color: var(--sand);
+  margin-right: 4px;
+}
+.cc-time {
+  color: var(--orange);
+}
+.pass-count-done {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pass-barcode-wrap {
+  padding: 16px 0 18px;
+  border-color: rgba(216, 201, 174, 0.3);
+}
+.pass-barcode {
+  color: var(--sand);
+  height: 34px;
+}
+.pass-seat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--sand);
+  margin-top: 8px;
+  letter-spacing: 0.06em;
+}
+
+.pass-notch {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: var(--fog);
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+.pass-notch--l {
+  left: -9px;
+}
+.pass-notch--r {
+  right: -9px;
+}
+
+/* ============ Hotel card ============ */
+.hotel {
+  display: flex;
+  flex-direction: column;
+}
+.hotel-art {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hotel-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hotel-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+}
+.hotel-addr {
+  font-size: 13px;
+  color: var(--ink-soft);
+  resize: none;
+}
+.hotel-map {
+  align-self: flex-start;
+  font-size: 12px;
+  color: var(--orange);
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+/* ============ Crew chips + contact card ============ */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--teal);
+}
+.chip.is-open {
+  border-color: var(--orange);
+  background: #fdf2f1;
+}
+.chip.is-open .chip-dot {
+  background: var(--orange);
+}
+.chip--add {
+  color: var(--ink-soft);
+  border-style: dashed;
+}
+
+.contact {
+  margin-top: 12px;
+  padding: 16px 18px 18px;
+}
+.contact-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.contact-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  flex: 1;
+}
+.contact-del {
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+}
+.contact-del:active {
+  color: var(--orange);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.field-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.field-input {
+  font-size: 13px;
+}
+.contact-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.contact-btn {
+  flex: 1;
+  text-align: center;
+  background: var(--fog);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  min-width: 90px;
+}
+.contact-btn:active {
+  background: var(--sand);
+}
+
+/* ============ Itinerary / day cards ============ */
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.daycard {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.daycard-head {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+}
+.daycard-cover {
+  position: relative;
+  flex: 0 0 96px;
+  overflow: hidden;
+}
+.daycover-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.daystamp {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  padding: 3px 8px;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  transform: rotate(-6deg);
+}
+.daystamp-inner b {
+  display: block;
+  font-size: 13px;
+  line-height: 1;
+  text-align: center;
+}
+.daycard-meta {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 4px 14px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+.daycard-date {
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+}
+.daycard-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+}
+.daycard-sub {
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.daycard-chev {
+  align-self: center;
+  margin-right: 14px;
+  color: var(--ink-soft);
+  transition: transform 0.15s;
+  flex: 0 0 auto;
+}
+.daycard-chev.is-open {
+  transform: rotate(180deg);
+  color: var(--orange);
+}
+
+.daycard-body {
+  padding: 4px 18px 18px;
+  border-top: 1px dashed var(--line);
+}
+.day-title-edit {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  margin: 14px 0 6px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+.timeline-empty {
+  color: var(--ink-soft);
+  font-size: 13px;
+  padding: 12px 0;
+}
+.tl-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+}
+.tl-item:not(:last-child) {
+  border-bottom: 1px dotted var(--line);
+}
+.tl-marker {
+  flex: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2px;
+}
+.tl-icon {
+  flex: 0 0 auto;
+}
+.tl-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tl-row1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tl-time {
+  flex: 0 0 52px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.tl-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 0;
+}
+.tl-del {
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 2px;
+}
+.tl-del:active {
+  color: var(--orange);
+}
+.tl-row2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tl-cost {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  gap: 2px;
+}
+.tl-cost-input {
+  width: 60px;
+  font-size: 12px;
+}
+.tl-split {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.tl-split-label {
+  font-size: 10px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  margin-right: 2px;
+}
+.split-chip {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--fog);
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.split-chip.is-on {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+.tl-notes {
+  font-size: 12px;
+  color: var(--ink-soft);
+  resize: none;
+}
+.add-act {
+  margin-top: 8px;
+  background: none;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  width: 100%;
+}
+.add-act:active {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* ============ Budget receipt ============ */
+.receipt {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 20px 20px 18px;
+  font-size: 13px;
+  box-shadow: none;
+}
+.receipt-head {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.receipt-title {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+}
+.receipt-sub {
+  font-size: 10px;
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+.receipt-perf {
+  border-top: 1px dashed var(--line);
+  margin: 12px 0;
+}
+.receipt-lines,
+.receipt-split {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.receipt-empty {
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 4px 0;
+}
+.receipt-line {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.rl-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rl-dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--ink-soft);
+  opacity: 0.4;
+  transform: translateY(-3px);
+}
+.rl-amt {
+  white-space: nowrap;
+}
+.receipt-total {
+  font-weight: 600;
+  font-size: 15px;
+}
+.receipt-split-head {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+.receipt-barcode-wrap {
+  text-align: center;
+}
+.receipt-barcode {
+  color: var(--ink);
+  opacity: 0.85;
+  height: 30px;
+  margin-bottom: 8px;
+}
+.receipt-foot {
+  font-size: 10px;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+}
+
+/* ============ Footer ============ */
+.app-foot {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.sync-status--synced {
+  color: var(--teal);
+}
+.sync-status--syncing {
+  color: var(--gold);
+}
+.sync-status--offline {
+  color: var(--orange);
+}
+
+/* ============ Small screens ============ */
+@media (max-width: 380px) {
+  .daycard-cover {
+    flex-basis: 76px;
+  }
+  .pass-code {
+    font-size: 28px;
+  }
+}
