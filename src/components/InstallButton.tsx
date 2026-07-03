@@ -13,8 +13,21 @@ export function InstallButton({ onEnter }: Props) {
   const { mode, promptInstall } = useInstallPrompt()
   const [showIosSheet, setShowIosSheet] = useState(false)
 
-  // Already installed / running standalone: no button, straight into the app.
-  if (mode === 'installed') return null
+  // Already installed / running standalone: no install offer, just a clear way in.
+  if (mode === 'installed') {
+    return (
+      <div className="install-wrap">
+        <button className="stub-btn" onClick={onEnter}>
+          <span className="stub-btn-notch stub-btn-notch--l" aria-hidden />
+          <span className="stub-btn-notch stub-btn-notch--r" aria-hidden />
+          <span className="stub-btn-icon" aria-hidden>
+            <TicketGlyph />
+          </span>
+          <span className="stub-btn-text">Open ticket</span>
+        </button>
+      </div>
+    )
+  }
 
   const handleClick = async () => {
     if (mode === 'ios') {
@@ -49,6 +62,18 @@ export function InstallButton({ onEnter }: Props) {
 
       {showIosSheet && <IosInstallSheet onClose={() => setShowIosSheet(false)} />}
     </>
+  )
+}
+
+function TicketGlyph() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M4 6h16v3.2a2 2 0 0 0 0 5.6V18H4v-3.2a2 2 0 0 0 0-5.6V6Z"
+        fill="currentColor"
+      />
+      <line x1="14" y1="6" x2="14" y2="18" stroke="var(--navy)" strokeWidth="1.4" strokeDasharray="1.6 1.8" />
+    </svg>
   )
 }
 

@@ -56,6 +56,11 @@ export function useTripState() {
   stateRef.current = state
   const writeTimer = useRef<number | undefined>(undefined)
   const pushTimer = useRef<number | undefined>(undefined)
+  // Only a genuine local edit (via `update`) should ever be pushed — never the
+  // as-loaded mount value. Without this guard, a browser tab sitting on old
+  // cached state re-pushes that stale snapshot every time it (re)mounts,
+  // silently clobbering newer data anyone else has saved since.
+  const hasLocalEdit = useRef(false)
 
   // Debounced localStorage persistence on every change.
   useEffect(() => {
@@ -66,8 +71,9 @@ export function useTripState() {
     }
   }, [state])
 
-  // Debounced push to the shared server copy (separate, longer debounce to limit requests).
+  // Debounced push to the shared server copy — only runs after a real local edit.
   useEffect(() => {
+    if (!hasLocalEdit.current) return
     if (pushTimer.current) window.clearTimeout(pushTimer.current)
     pushTimer.current = window.setTimeout(() => {
       setSync('syncing')
@@ -122,6 +128,7 @@ export function useTripState() {
   }, [pull])
 
   const update = useCallback((patch: Partial<TripState> | ((s: TripState) => TripState)) => {
+    hasLocalEdit.current = true
     setState((prev) => {
       const next = typeof patch === 'function' ? patch(prev) : { ...prev, ...patch }
       return { ...next, updatedAt: Date.now() }
