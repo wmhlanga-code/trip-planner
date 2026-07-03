@@ -189,7 +189,7 @@ function ActivityRow({
           value={activity.notes}
           onChange={(e) => onPatch({ notes: e.target.value })}
           placeholder="Notes…"
-          rows={1}
+          rows={3}
           spellCheck={false}
         />
       </div>
