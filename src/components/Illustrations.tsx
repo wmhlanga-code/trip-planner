@@ -18,27 +18,35 @@ interface CoverProps {
 
 /* ---------------- Day covers (viewBox 0 0 120 64) ---------------- */
 
-function FerryMoon() {
+function RowHouses() {
   return (
     <g>
-      <rect width="120" height="64" fill={C.navy} />
-      <circle cx="96" cy="18" r="9" fill={C.sand} />
-      <circle cx="92" cy="15" r="9" fill={C.navy} />
-      <g fill={C.sand} opacity="0.7">
-        <circle cx="20" cy="12" r="0.9" />
-        <circle cx="40" cy="8" r="0.8" />
-        <circle cx="62" cy="14" r="0.7" />
-        <circle cx="12" cy="26" r="0.7" />
+      <rect width="120" height="64" fill={C.sand} opacity="0.5" />
+      <rect y="0" width="120" height="64" fill={C.fog} opacity="0.6" />
+      <path d="M0 64Q40 46 120 52V64z" fill={C.teal} opacity="0.35" />
+      <g>
+        <rect x="8" y="30" width="20" height="26" fill={C.orange} />
+        <path d="M6 30l12-10 12 10z" fill={C.navy} />
+        <rect x="30" y="22" width="20" height="34" fill={C.gold} />
+        <path d="M28 22l12-9 12 9z" fill={C.gold} />
+        <rect x="52" y="34" width="18" height="22" fill={C.teal} />
+        <path d="M50 34l11-9 11 9z" fill={C.teal} />
+        <rect x="72" y="18" width="20" height="38" fill={C.navy2} />
+        <path d="M70 18l12-10 12 10z" fill={C.navy2} />
+        <rect x="94" y="28" width="18" height="28" fill={C.orange} />
+        <path d="M92 28l11-9 11 9z" fill={C.orange} />
       </g>
-      <path d="M0 46h120v18H0z" fill={C.navy2} />
-      <g fill={C.teal}>
-        <path d="M18 40h34l-4 6H22z" />
-        <rect x="26" y="30" width="18" height="10" />
-        <rect x="30" y="26" width="4" height="4" fill={C.orange} />
+      <g fill={C.paper} opacity="0.85">
+        <rect x="13" y="38" width="4" height="5" />
+        <rect x="20" y="38" width="4" height="5" />
+        <rect x="37" y="30" width="4" height="5" />
+        <rect x="44" y="30" width="4" height="5" />
+        <rect x="58" y="40" width="4" height="5" />
+        <rect x="79" y="26" width="4" height="5" />
+        <rect x="86" y="26" width="4" height="5" />
+        <rect x="100" y="36" width="4" height="5" />
       </g>
-      <g stroke={C.sand} strokeWidth="1" opacity="0.5">
-        <path d="M8 52h20M60 50h30M40 56h44" />
-      </g>
+      <rect y="56" width="120" height="8" fill={C.navy2} />
     </g>
   )
 }
@@ -80,51 +88,47 @@ function Bridge() {
   )
 }
 
-function Coaster() {
-  return (
-    <g>
-      <rect width="120" height="64" fill={C.navy2} />
-      <path
-        d="M4 58 C 20 10, 40 10, 50 40 C 56 58, 70 58, 78 30 C 84 8, 104 8, 116 52"
-        fill="none"
-        stroke={C.orange}
-        strokeWidth="3"
-      />
-      <g stroke={C.sand} strokeWidth="1.4" opacity="0.7">
-        <path d="M12 40v18M28 20v38M50 40v18M78 30v28M100 22v36" />
-      </g>
-      <rect x="6" y="52" width="10" height="6" rx="2" fill={C.gold} />
-    </g>
-  )
-}
-
-function Mountain() {
-  return (
-    <g>
-      <rect width="120" height="64" fill={C.gold} opacity="0.25" />
-      <rect y="0" width="120" height="64" fill={C.sand} opacity="0.5" />
-      <path d="M0 64 40 18 66 44 84 26 120 64z" fill={C.teal} />
-      <path d="M40 18 52 32 34 32z" fill={C.paper} />
-      <path d="M84 26 94 40 74 40z" fill={C.paper} opacity="0.8" />
-      <circle cx="100" cy="16" r="8" fill={C.orange} />
-    </g>
-  )
-}
-
-function ClockTower() {
+function Billiards() {
   return (
     <g>
       <rect width="120" height="64" fill={C.navy} />
-      <rect y="48" width="120" height="16" fill={C.teal} />
-      <rect x="50" y="8" width="20" height="46" fill={C.sand} />
-      <path d="M48 8l12-6 12 6z" fill={C.orange} />
-      <circle cx="60" cy="20" r="6" fill={C.paper} />
-      <path d="M60 20v-4M60 20l3 2" stroke={C.navy} strokeWidth="1.2" strokeLinecap="round" />
-      <g fill={C.navy2}>
-        <rect x="54" y="32" width="4" height="6" />
-        <rect x="62" y="32" width="4" height="6" />
-        <rect x="54" y="42" width="4" height="6" />
-        <rect x="62" y="42" width="4" height="6" />
+      <rect x="10" y="10" width="100" height="44" rx="4" fill={C.teal} />
+      <rect x="10" y="10" width="100" height="44" rx="4" fill="none" stroke={C.gold} strokeWidth="3" />
+      <circle cx="18" cy="18" r="3.5" fill={C.navy} />
+      <circle cx="102" cy="18" r="3.5" fill={C.navy} />
+      <circle cx="18" cy="46" r="3.5" fill={C.navy} />
+      <circle cx="102" cy="46" r="3.5" fill={C.navy} />
+      <circle cx="60" cy="14" r="3.5" fill={C.navy} />
+      <circle cx="60" cy="50" r="3.5" fill={C.navy} />
+      <circle cx="48" cy="32" r="7" fill={C.paper} />
+      <circle cx="48" cy="32" r="7" fill="none" stroke={C.navy} strokeWidth="1" />
+      <text x="48" y="35" fontSize="8" textAnchor="middle" fill={C.navy} fontWeight="700">
+        8
+      </text>
+      <circle cx="66" cy="38" r="6" fill={C.orange} />
+      <circle cx="78" cy="26" r="6" fill={C.gold} />
+      <line x1="90" y1="10" x2="70" y2="34" stroke={C.sand} strokeWidth="2.4" strokeLinecap="round" />
+    </g>
+  )
+}
+
+function Island() {
+  return (
+    <g>
+      <rect width="120" height="64" fill={C.sand} opacity="0.55" />
+      <rect y="0" width="120" height="64" fill={C.fog} opacity="0.5" />
+      <circle cx="100" cy="14" r="8" fill={C.gold} />
+      <path d="M60 30q10-14 26-8q8 3 10 10z" fill={C.teal} />
+      <circle cx="70" cy="18" r="5" fill={C.teal} />
+      <rect y="40" width="120" height="24" fill={C.teal} opacity="0.5" />
+      <path d="M0 64 Q30 44 60 50 T120 46V64z" fill={C.teal} />
+      <g>
+        <path d="M14 44h34l-5 8H19z" fill={C.paper} />
+        <rect x="24" y="34" width="16" height="10" fill={C.navy2} />
+        <rect x="29" y="30" width="4" height="4" fill={C.orange} />
+      </g>
+      <g stroke={C.paper} strokeWidth="1" opacity="0.5">
+        <path d="M4 54h20M50 52h30M80 56h30" />
       </g>
     </g>
   )
@@ -160,15 +164,37 @@ function Park() {
   )
 }
 
+function Plane() {
+  return (
+    <g>
+      <rect width="120" height="64" fill={C.sand} opacity="0.6" />
+      <rect y="0" width="120" height="64" fill={C.fog} opacity="0.5" />
+      <circle cx="24" cy="46" r="10" fill={C.gold} opacity="0.6" />
+      <g stroke={C.navy} strokeWidth="1.6" opacity="0.4" strokeLinecap="round">
+        <path d="M50 46h14M56 52h16M46 40h10" />
+      </g>
+      <g transform="translate(66 26) rotate(-18)">
+        <path d="M0 0h34l6 3-6 3H0l-8-3z" fill={C.navy} />
+        <path d="M14 3l10-12 5 1-6 11z" fill={C.orange} />
+        <path d="M14 3l8 11-5 1-8-9z" fill={C.orange} />
+        <path d="M34 1l10-5 3 1-7 6z" fill={C.navy2} />
+      </g>
+      <g stroke={C.paper} strokeWidth="1.6" opacity="0.7" strokeLinecap="round">
+        <path d="M18 40l30 8M10 46l32 10" />
+      </g>
+    </g>
+  )
+}
+
 const COVERS: Record<DayTheme, () => JSX.Element> = {
-  'ferry-moon': FerryMoon,
-  pier: Pier,
-  bridge: Bridge,
-  coaster: Coaster,
-  mountain: Mountain,
-  clocktower: ClockTower,
-  sunset: Sunset,
+  rowhouses: RowHouses,
   park: Park,
+  billiards: Billiards,
+  island: Island,
+  bridge: Bridge,
+  pier: Pier,
+  sunset: Sunset,
+  plane: Plane,
 }
 
 export function DayCover({ theme, className }: { theme: DayTheme; className?: string }) {

@@ -32,14 +32,14 @@ export interface Activity {
 }
 
 export type DayTheme =
-  | 'ferry-moon'
-  | 'pier'
-  | 'bridge'
-  | 'coaster'
-  | 'mountain'
-  | 'clocktower'
-  | 'sunset'
+  | 'rowhouses'
   | 'park'
+  | 'billiards'
+  | 'island'
+  | 'bridge'
+  | 'pier'
+  | 'sunset'
+  | 'plane'
 
 export interface TripDay {
   id: string
